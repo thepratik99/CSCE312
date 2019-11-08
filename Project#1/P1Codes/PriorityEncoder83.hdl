@@ -1,0 +1,38 @@
+//Priority Encoder
+//input is 8-bit long array
+//output is 3-bit long array
+
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP PriorityEncoder83 {
+	IN a[8];
+	OUT out[3], idle;
+
+	PARTS:
+	Or8Way(in[0..7]=a[0..7], out=w16);
+	Not(in=w16, out=idle);
+	Not(in=a[0], out=w0);
+	Not(in=a[1], out=w1);
+	Not(in=a[2], out=w2);
+	Not(in=a[3], out=w3);
+	Not(in=a[4], out=w4);
+	Not(in=a[5], out=w5);
+	Not(in=a[6], out=w6);
+	Not(in=a[7], out=w7);
+
+	And8Way(in[0]=w7, in[1]=w6, in[2]=w5, in[3]=w4, in[4]=w3, in[5]=w2, in[6]=w1, in[7]=a[0], out=w8);
+	And8Way(in[0]=w7, in[1]=w6, in[2]=w5, in[3]=w4, in[4]=w3, in[5]=w2, in[6]=a[1], in[7]=true, out=w9);
+	And8Way(in[0]=w7, in[1]=w6, in[2]=w5, in[3]=w4, in[4]=w3, in[5]=a[2], in[6]=true, in[7]=true, out=w10);
+	And8Way(in[0]=w7, in[1]=w6, in[2]=w5, in[3]=w4, in[4]=a[3], in[5]=true, in[6]=true, in[7]=true, out=w11);
+	And8Way(in[0]=w7, in[1]=w6, in[2]=w5, in[3]=a[4], in[4]=true, in[5]=true, in[6]=true, in[7]=true, out=w12);
+	And8Way(in[0]=w7, in[1]=w6, in[2]=a[5], in[3]=true, in[4]=true, in[5]=true, in[6]=true, in[7]=true, out=w13);
+	And8Way(in[0]=w7, in[1]=a[6], in[2]=true, in[3]=true, in[4]=true, in[5]=true, in[6]=true, in[7]=true, out=w14);
+	And8Way(in[0]=a[7], in[1]=true, in[2]=true, in[3]=true, in[4]=true, in[5]=true, in[6]=true, in[7]=true, out=w15);
+	
+	Or4Way(in[0]=w15, in[1]=w13, in[2]=w11, in[3]=w9, out=out[0]);
+	Or4Way(in[0]=w15, in[1]=w14, in[2]=w11, in[3]=w10, out=out[1]);
+	Or4Way(in[0]=w15, in[1]=w14, in[2]=w13, in[3]=w12, out=out[2]);
+
+
+}

@@ -1,0 +1,11 @@
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP Or2 {
+    IN a[2], b[2];
+    OUT out[2];
+
+    PARTS:
+    Or(a=a[0], b=b[0], out=out[0]);
+    Or(a=a[1], b=b[1], out=out[1]);
+}

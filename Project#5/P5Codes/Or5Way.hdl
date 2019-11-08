@@ -1,0 +1,9 @@
+CHIP Or5Way{
+	
+	IN in[5];
+	OUT out;
+
+	PARTS:
+	Or4Way(in[0..3]=in[0..3], out=w1);
+	Or(a=in[4], b=w1, out=out);
+}

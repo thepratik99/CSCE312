@@ -1,0 +1,16 @@
+/**
+ * Adds two 8-bit values.
+ */
+
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP Add8 {
+    IN a[8], b[8], carryIn;
+    OUT out[8],carry;
+
+    PARTS:
+    // Put you code here:  
+	Add4(a[0..3]=a[0..3], b[0..3]=b[0..3], carryIn=carryIn, out[0..3]=out[0..3], carry=w1);
+	Add4(a[0..3]=a[4..7], b[0..3]=b[4..7], carryIn=w1, out[0..3]=out[4..7], carry=carry);
+}

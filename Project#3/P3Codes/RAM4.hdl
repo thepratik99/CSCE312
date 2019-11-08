@@ -1,0 +1,22 @@
+/**
+ * Memory of 4 registers, each 16 bit-wide. Out holds the value
+ * stored at the memory location specified by address. If load==1, then 
+ * the in value is loaded into the memory location specified by address 
+ * (the loaded value will be emitted to out from the next time step onward).
+ */
+
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP RAM4 {
+    IN in[16], load, address[2];
+    OUT out[16];
+
+    PARTS:
+    Register(in=in, load=w1, out=w5);
+    Register(in=in, load=w2, out=w6);
+    Register(in=in, load=w3, out=w7);
+    Register(in=in, load=w4, out=w8);
+    DMux4Way(in=load, sel[0]=address[0], sel[1]=address[1], a=w1, b=w2, c=w3, d=w4);
+    Mux4Way16(a=w5, b=w6, c=w7, d=w8, sel[0]=address[0], sel[1]=address[1], out=out);
+}

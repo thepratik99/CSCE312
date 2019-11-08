@@ -1,0 +1,11 @@
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP And8 {
+    IN a[8], b[8];
+    OUT out[8];
+
+    PARTS:
+    And4(a[0..3]=a[0..3], b[0..3]=b[0..3], out[0..3]=out[0..3]);
+    And4(a[0..3]=a[4..7], b[0..3]=b[4..7], out[0..3]=out[4..7]);
+}

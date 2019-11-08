@@ -1,0 +1,24 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Not16.hdl
+
+//Name: Pratik Patel
+//UIN: 527004337
+
+/**
+ * 16-bit Not:
+ * for i=0..15: out[i] = not in[i]
+ */
+
+CHIP Not16 {
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+    Not8(in[0..7]=in[0..7], out[0..7]=out[0..7]);
+    Not8(in[0..7]=in[8..15], out[0..7]=out[8..15]);
+}
+
+
+

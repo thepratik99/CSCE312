@@ -1,0 +1,17 @@
+/**
+ * 4-bit register:
+ * If load[t] == 1 then out[t+1] = in[t]
+ *                 else out does not change (out[t+1] = out[t])
+ */
+
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP Bit4 {
+    IN in[4], load;
+    OUT out[4];
+
+    PARTS:
+    Bit2(in[0..1]=in[0..1], load=load, out[0..1]=out[0..1]);
+    Bit2(in[0..1]=in[2..3], load=load, out[0..1]=out[2..3]);
+}

@@ -1,0 +1,21 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/Or16.hdl
+
+//Name: Pratik Patel
+//UIN: 527004337
+
+/**
+ * 16-bit bitwise Or:
+ * for i = 0..15 out[i] = (a[i] or b[i])
+ */
+
+CHIP Or16 {
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    Or8(a[0..7]=a[0..7], b[0..7]=b[0..7], out[0..7]=out[0..7]);
+    Or8(a[0..7]=a[8..15], b[0..7]=b[8..15], out[0..7]=out[8..15]);
+}

@@ -1,0 +1,12 @@
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP Nor4Way {
+	IN in[4];
+	OUT out;
+
+	PARTS:
+	Nor(a=in[0], b=in[1], out=w1);
+	Nor(a=in[2], b=in[3], out=w2);
+	Nor(a=w1, b=w2, out=out);
+}

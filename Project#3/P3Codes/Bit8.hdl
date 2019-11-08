@@ -1,0 +1,17 @@
+/**
+ * 8-bit register:
+ * If load[t] == 1 then out[t+1] = in[t]
+ *                 else out does not change (out[t+1] = out[t])
+ */
+
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP Bit8 {
+    IN in[8], load;
+    OUT out[8];
+
+    PARTS:
+    Bit4(in[0..3]=in[0..3], load=load, out[0..3]=out[0..3]);
+    Bit4(in[0..3]=in[4..7], load=load, out[0..3]=out[4..7]);
+}

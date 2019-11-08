@@ -1,0 +1,12 @@
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP And8Way {
+	IN in[8];
+	OUT out;
+
+	PARTS:
+	And4Way(in[0..3]=in[0..3], out=w1);
+	And4Way(in[0..3]=in[4..7], out=w2);
+	And(a=w1, b=w2, out=out);
+}

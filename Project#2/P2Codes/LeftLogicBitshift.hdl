@@ -1,0 +1,40 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/LeftLogicBitshift.hdl
+
+/**
+ * Shift x left y bits, new bits are filled in with 0, you may not use any DFF or clocked chip in this implementation
+ * You may assume the maximum shift is 8-bit
+ */
+
+//Name: Pratik Patel
+//UIN: 527004337
+
+CHIP LeftLogicBitshift {
+    IN x[16], y[16];
+    OUT out[16];
+
+    PARTS:
+    // Put you code here:
+    Mux16(b[0]=false, b[1..15]=x[0..14], 
+    a[0..15]=x[0..15], 
+    sel=y[0], 
+    out[0]=w0, out[1]=w1, out[2]=w2, out[3]=w3, out[4]=w4, out[5]=w5, out[6]=w6, out[7]=w7, out[8]=w8, out[9]=w9, out[10]=w10, out[11]=w11, out[12]=w12, out[13]=w13, out[14]=w14, out[15]=w15);
+
+    Mux16(b[0..1]=false, b[2]=w0, b[3]=w1, b[4]=w2, b[5]=w3, b[6]=w4, b[7]=w5, b[8]=w6, b[9]=w7, b[10]=w8, b[11]=w9, b[12]=w10, b[13]=w11, b[14]=w12, b[15]=w13, 
+    a[0]=w0, a[1]=w1, a[2]=w2, a[3]=w3, a[4]=w4, a[5]=w5, a[6]=w6, a[7]=w7, a[8]=w8, a[9]=w9, a[10]=w10, a[11]=w11, a[12]=w12, a[13]=w13, a[14]=w14, a[15]=w15,  
+    sel=y[1], 
+    out[0]=y0, out[1]=y1, out[2]=y2, out[3]=y3, out[4]=y4, out[5]=y5, out[6]=y6, out[7]=y7, out[8]=y8, out[9]=y9, out[10]=y10, out[11]=y11, out[12]=y12, out[13]=y13, out[14]=y14, out[15]=y15);
+
+    Mux16(b[0..3]=false, b[4]=y0, b[5]=y1, b[6]=y2, b[7]=y3, b[8]=y4, b[9]=y5, b[10]=y6, b[11]=y7, b[12]=y8, b[13]=y9, b[14]=y10, b[15]=y11, 
+    a[0]=y0, a[1]=y1, a[2]=y2, a[3]=y3, a[4]=y4, a[5]=y5, a[6]=y6, a[7]=y7, a[8]=y8, a[9]=y9, a[10]=y10, a[11]=y11, a[12]=y12, a[13]=y13, a[14]=y14, a[15]=y15, 
+    sel=y[2], 
+    out[0]=z0, out[1]=z1, out[2]=z2, out[3]=z3, out[4]=z4, out[5]=z5, out[6]=z6, out[7]=z7, out[8]=z8, out[9]=z9, out[10]=z10, out[11]=z11, out[12]=z12, out[13]=z13, out[14]=z14, out[15]=z15);
+
+    Mux16(b[0..7]=false, b[8]=z0, b[9]=z1, b[10]=z2, b[11]=z3, b[12]=z4, b[13]=z5, b[14]=z6, b[15]=z7,
+    a[0]=z0, a[1]=z1, a[2]=z2, a[3]=z3, a[4]=z4, a[5]=z5, a[6]=z6, a[7]=z7, a[8]=z8, a[9]=z9, a[10]=z10, a[11]=z11, a[12]=z12, a[13]=z13, a[14]=z14, a[15]=z15,
+    sel=y[3],
+    out[0..15]=out[0..15]);
+
+}
